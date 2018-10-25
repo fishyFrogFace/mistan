@@ -15,7 +15,7 @@ site =
     route [ ("foo", writeBS "bar")
           , ("echo/:echoparam", echoHandler)
           ] <|>
-    dir "static" (serveDirectory ".")
+    dir "static" (serveDirectory "./html")
 
 echoHandler :: Snap ()
 echoHandler = do
