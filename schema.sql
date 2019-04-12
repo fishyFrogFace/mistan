@@ -1,18 +1,27 @@
+CREATE TABLE company (
+  company_id SERIAL PRIMARY KEY,
+  name TEXT UNIQUE NOT NULL
+);
+
 CREATE TABLE campus (
   campus_id SERIAL PRIMARY KEY,
-  name UNIQUE TEXT NOT NULL
+  name TEXT NOT NULL,
+  company_id INT REFERENCES company (company_id) NOT NULL,
+  UNIQUE (name, company_id)
 );
   
 CREATE TABLE building (
   building_id SERIAL PRIMARY KEY,
-  name UNIQUE TEXT NOT NULL,
-  campus_id INT REFERENCES campus (campus_id) NOT NULL
+  name TEXT UNIQUE NOT NULL,
+  campus_id INT REFERENCES campus (campus_id) NOT NULL,
+  UNIQUE (name, campus_id)
 );
 
 CREATE TABLE floor (
   floor_id SERIAL PRIMARY KEY,
   name INT NOT NULL,
-  building_id INT REFERENCES building (building_id) NOT NULL
+  building_id INT REFERENCES building (building_id) NOT NULL,
+  UNIQUE (name, building_id)
 );
   
 CREATE TABLE room (
