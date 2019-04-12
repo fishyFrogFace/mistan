@@ -1,11 +1,11 @@
 CREATE TABLE campus (
   campus_id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL
+  name UNIQUE TEXT NOT NULL
 );
   
 CREATE TABLE building (
   building_id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
+  name UNIQUE TEXT NOT NULL,
   campus_id INT REFERENCES campus (campus_id) NOT NULL
 );
 
