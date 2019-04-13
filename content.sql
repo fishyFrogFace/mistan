@@ -176,7 +176,15 @@ INSERT INTO floor VALUES
   (DEFAULT, '3', 92),
   (DEFAULT, '2', 92),
   (DEFAULT, '1', 92),
-  (DEFAULT, 'K', 92);
+  (DEFAULT, 'K', 92),
+  (DEFAULT, '6', 2),
+  (DEFAULT, '5', 2),
+  (DEFAULT, '4', 2),
+  (DEFAULT, '3', 2),
+  (DEFAULT, '2', 2),
+  (DEFAULT, '1', 2),
+  (DEFAULT, 'U1', 2),
+  (DEFAULT, 'U2', 2);
 
 INSERT INTO room VALUES
   (DEFAULT, 'R1', 6),
