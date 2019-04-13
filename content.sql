@@ -196,4 +196,13 @@ INSERT INTO room VALUES
   (DEFAULT, 'R7', 6),
   (DEFAULT, 'R8', 6),
   (DEFAULT, 'R9', 6),
-  (DEFAULT, 'R10', 1);
+  (DEFAULT, 'R10', 1),
+  (DEFAULT, 'S1', 38),
+  (DEFAULT, 'S2', 38),
+  (DEFAULT, 'S3', 38),
+  (DEFAULT, 'S4', 38),
+  (DEFAULT, 'S5', 38),
+  (DEFAULT, 'S6', 24),
+  (DEFAULT, 'S7', 24),
+  (DEFAULT, 'S8', 24),
+  (DEFAULT, 'A001', 46);
