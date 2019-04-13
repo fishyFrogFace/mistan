@@ -206,3 +206,12 @@ INSERT INTO room VALUES
   (DEFAULT, 'S7', 24),
   (DEFAULT, 'S8', 24),
   (DEFAULT, 'A001', 46);
+
+INSERT INTO item_type VALUES
+  ('Nøkkel', 'Key'),
+  ('Nøkkelknippe', 'Keychain'),
+  ('Paraply', 'Umbrella'),
+  ('Jakke', 'Jacket'),
+  ('Genser', 'Sweater'),
+  ('Bok', 'Book'),
+  ('Kalkulator', 'Calculator');
