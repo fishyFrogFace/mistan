@@ -148,3 +148,15 @@ INSERT INTO floor VALUES
   (DEFAULT, 'U2', 88),
   (DEFAULT, 'U3', 88),
   (DEFAULT, 'U4', 88);
+
+INSERT INTO room VALUES
+  (DEFAULT, 'R1', 6),
+  (DEFAULT, 'R2', 6),
+  (DEFAULT, 'R3', 6),
+  (DEFAULT, 'R4', 6),
+  (DEFAULT, 'R5', 6),
+  (DEFAULT, 'R6', 6),
+  (DEFAULT, 'R7', 6),
+  (DEFAULT, 'R8', 6),
+  (DEFAULT, 'R9', 6),
+  (DEFAULT, 'R10', 1);
