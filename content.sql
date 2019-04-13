@@ -137,3 +137,14 @@ INSERT INTO building VALUES
   (DEFAULT, 'VM-paviljongen', 1),
   (DEFAULT, 'Østre Gløshaugen', 1),
   (DEFAULT, 'Øya helsehus', 4);
+
+INSERT INTO floor VALUES
+  (DEFAULT, '5', 88),
+  (DEFAULT, '4', 88),
+  (DEFAULT, '3', 88),
+  (DEFAULT, '2', 88),
+  (DEFAULT, '1', 88),
+  (DEFAULT, 'U1', 88),
+  (DEFAULT, 'U2', 88),
+  (DEFAULT, 'U3', 88),
+  (DEFAULT, 'U4', 88);

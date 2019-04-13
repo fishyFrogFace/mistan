@@ -19,7 +19,7 @@ CREATE TABLE building (
 
 CREATE TABLE floor (
   floor_id SERIAL PRIMARY KEY,
-  name INT NOT NULL,
+  name TEXT NOT NULL,
   building_id INT REFERENCES building (building_id) NOT NULL,
   UNIQUE (name, building_id)
 );
