@@ -214,4 +214,8 @@ INSERT INTO item_type VALUES
   ('Jakke', 'Jacket'),
   ('Genser', 'Sweater'),
   ('Bok', 'Book'),
-  ('Kalkulator', 'Calculator');
+  ('Kalkulator', 'Calculator'),
+  ('Laptoplader', 'Laptop charger'),
+  ('Mobillader', 'Phone charger'),
+  ('Mobiltelefon', 'Mobile phone'),
+  ('Laptop', 'Laptop');
