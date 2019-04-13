@@ -33,12 +33,14 @@ CREATE TABLE room (
 CREATE TYPE state AS ENUM ('found', 'lost', 'returned');
 
 CREATE TABLE item_type (
-  name TEXT PRIMARY KEY
+  name_no TEXT PRIMARY KEY,
+  name_eng TEXT UNIQUE NOT NULL
 );
 
 CREATE TABLE item (
   item_id SERIAL PRIMARY KEY,
   registered_as state NOT NULL,
+  descript TEXT NOT NULL,
   item_name TEXT REFERENCES item_type (name) NOT NULL
 );
 
