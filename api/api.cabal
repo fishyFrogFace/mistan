@@ -1,48 +1,66 @@
-name:                api
-version:             0.1.0.0
--- synopsis:
--- description:
-homepage:            https://github.com/fishyfrogface/mistan#readme
-license:             BSD3
-license-file:        LICENSE
-author:              Camilla Rygh
-copyright:           Camilla Rygh 2019
-category:            Web
-build-type:          Simple
-extra-source-files:  README.md
-cabal-version:       >=1.10
+cabal-version: 1.12
 
-library
-  hs-source-dirs:      src
-  exposed-modules:     Lib
-  build-depends:       base >= 4.7 && < 5
-                     , aeson
-                     , servant-server
-                     , wai
-                     , warp
-  default-language:    Haskell2010
+-- This file has been generated from package.yaml by hpack version 0.31.1.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 8c4a3f64aec2434f848a06e5a57e739ca567a65e842cc715eb998cdf480e7843
 
-executable api-exe
-  hs-source-dirs:      app
-  main-is:             Main.hs
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
-  build-depends:       base
-                     , api
-  default-language:    Haskell2010
-
-test-suite api-test
-  type:                exitcode-stdio-1.0
-  hs-source-dirs:      test
-  main-is:             Spec.hs
-  build-depends:       base
-                     , api
-                     , hspec
-                     , hspec-wai
-                     , hspec-wai-json
-                     , aeson
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
-  default-language:    Haskell2010
+name:           api
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/fishyfrogface/mistan#readme>
+category:       Web
+homepage:       https://github.com/fishyfrogface/mistan#readme
+bug-reports:    https://github.com/fishyfrogface/mistan/issues
+author:         Camilla Rygh
+copyright:      Camilla Rygh (c) 2019
+license:        BSD3
+build-type:     Simple
 
 source-repository head
-  type:     git
+  type: git
   location: https://github.com/fishyfrogface/mistan
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_api
+  hs-source-dirs:
+      src
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , servant-server
+    , wai
+    , warp
+  default-language: Haskell2010
+
+executable api-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_api
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      api
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite api-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_api
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , api
+    , base >=4.7 && <5
+    , hspec
+    , hspec-wai
+    , hspec-wai-json
+  default-language: Haskell2010
