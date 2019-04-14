@@ -41,7 +41,7 @@ CREATE TABLE item (
   item_id SERIAL PRIMARY KEY,
   registered_as state NOT NULL,
   descript TEXT NOT NULL,
-  item_name TEXT REFERENCES item_type (name) NOT NULL
+  item_name TEXT REFERENCES item_type (name_no) NOT NULL
 );
 
 CREATE TABLE moved_to (
