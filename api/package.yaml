@@ -25,6 +25,7 @@ library:
   - servant-server
   - wai
   - warp
+  - postgresql-simple
 
 executables:
   api-exe:

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 8c4a3f64aec2434f848a06e5a57e739ca567a65e842cc715eb998cdf480e7843
+-- hash: cad21e22593f5a85e6c43f520b00d25b19e68243a39f92d73a42dc3760559448
 
 name:           api
 version:        0.1.0.0
@@ -31,6 +31,7 @@ library
   build-depends:
       aeson
     , base >=4.7 && <5
+    , postgresql-simple
     , servant-server
     , wai
     , warp
