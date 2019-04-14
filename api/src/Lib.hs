@@ -1,16 +1,17 @@
 {-# LANGUAGE DataKinds       #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeOperators   #-}
+
 module Lib
     ( startApp
     , app
     ) where
 
-import Data.Aeson
-import Data.Aeson.TH
-import Network.Wai
-import Network.Wai.Handler.Warp
-import Servant
+import Data.Aeson (defaultOptions)
+import Data.Aeson.TH (deriveJSON)
+import Network.Wai (Application(..))
+import Network.Wai.Handler.Warp (run)
+import Servant (Get(..), JSON(..), (:>), Proxy(..), Server(..), serve)
 
 data User = User
   { userId        :: Int
