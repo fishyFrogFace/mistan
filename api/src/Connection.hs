@@ -2,21 +2,19 @@
 
 module Connection
     ( hello
-    , test
     ) where
 
 import Database.PostgreSQL.Simple
+import System.Envy
 
-data Config = Config { postgresConfig :: ConnectInfo
-                     , port :: Int
-                     } deriving (Show)
+import Config.Types
 
-connectInfo = ConnectInfo "localhost" 5432 "postgres" "" "mistan"
-
-hello :: IO Int
+hello :: IO ()
 hello = do
-  conn <- connect connectInfo
-  [Only i] <- query_ conn "select 2 + 2"
-  return i
-
-test = undefined
+  info <- decodeEnv :: IO (Either String ConnectInfo)
+  case info of
+    Left err -> putStrLn err
+    Right ci -> do
+        conn <- connect ci
+        i <- query_ conn "select 2 + 2" :: IO [Only Int]
+        print i
