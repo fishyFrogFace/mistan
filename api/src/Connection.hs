@@ -5,9 +5,12 @@ module Connection
     ) where
 
 import Database.PostgreSQL.Simple
+import Database.PostgreSQL.Simple.ToRow
 import System.Envy
 
 import Config.Types
+import Types
+import qualified Queries.Insert as I
 
 hello :: IO ()
 hello = do
@@ -15,6 +18,7 @@ hello = do
   case info of
     Left err -> putStrLn err
     Right ci -> do
+        print ci
         conn <- connect ci
-        i <- query_ conn "select 2 + 2" :: IO [Only Int]
-        print i
+        b <- I.newCompany conn "lalalæøå'€ÆØÅ"
+        print b

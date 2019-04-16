@@ -21,7 +21,7 @@ instance ToRow Company where
 
 data Campus = Campus
   { campusId     :: Int
-  , campusName   :: String
+  , campusName   :: Text
   , fkCompanyId  :: Int
   } deriving (Eq, Show)
 
@@ -30,3 +30,4 @@ instance FromRow Campus where
 
 instance ToRow Campus where
   toRow c = [toField (campusId c), toField (campusName c), toField (fkCompanyId c)]
+
