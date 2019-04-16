@@ -2,6 +2,7 @@
 
 #stack
 */.stack-work
+*api.cabal
 
 # dependencies
 */node_modules
