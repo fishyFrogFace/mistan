@@ -27,6 +27,7 @@ library:
   - warp
   - postgresql-simple
   - envy
+  - text
 
 executables:
   api-exe:
