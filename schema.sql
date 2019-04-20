@@ -39,13 +39,13 @@ CREATE TABLE item_type (
 
 CREATE TABLE item (
   item_id SERIAL PRIMARY KEY,
-  registered_as state NOT NULL,
   descript TEXT NOT NULL,
   item_name TEXT REFERENCES item_type (name_no) NOT NULL
 );
 
 CREATE TABLE moved_to (
   item_id INT REFERENCES item (item_id) NOT NULL,
+  registered_as state NOT NULL,
   moved_from INT REFERENCES floor (floor_id) NOT NULL,
   moved_to INT REFERENCES floor (floor_id) NOT NULL,
   moved_date DATE NOT NULL,
