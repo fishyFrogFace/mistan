@@ -3,6 +3,8 @@ module Types
     , Campus(..)
     , Building(..)
     , Floor(..)
+    , Room(..)
+    , ItemType(..)
     ) where
 
 import Data.Text (Text)
@@ -68,3 +70,14 @@ instance FromRow Room where
 
 instance ToRow Room where
   toRow r = [toField (roomId r), toField (roomName r), toField (fkFloorId r)]
+
+data ItemType = ItemType
+  { itemTypeId   :: Int
+  , itemTypeName :: Text
+  }
+
+instance FromRow ItemType where
+  fromRow = ItemType <$> field <*> field
+  
+instance ToRow ItemType where
+  toRow r = [toField (itemTypeId r), toField (itemTypeName r)]
