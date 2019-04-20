@@ -15,3 +15,6 @@ newCompany conn name = execute conn "insert into company (name) values (?)" [nam
 
 newCampus :: Connection -> (Text, Int) -> IO Int64
 newCampus conn vals = execute conn "insert into campus (name, company_id) values (?, ?)" vals
+
+newBuilding :: Connection -> (Text, Int) -> IO Int64
+newBuilding conn vals = execute conn "insert into building (name, campus_id) values (?, ?)" vals

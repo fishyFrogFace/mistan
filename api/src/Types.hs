@@ -31,3 +31,15 @@ instance FromRow Campus where
 instance ToRow Campus where
   toRow c = [toField (campusId c), toField (campusName c), toField (fkCompanyId c)]
 
+data Building = Building
+  { buildingId     :: Int
+  , buildingName   :: Text
+  , fkCampusId  :: Int
+  } deriving (Eq, Show)
+
+instance FromRow Building where
+  fromRow = Building <$> field <*> field <*> field
+  
+instance ToRow Building where
+  toRow c = [toField (buildingId c), toField (buildingName c), toField (fkCampusId c)]
+  
