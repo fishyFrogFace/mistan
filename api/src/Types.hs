@@ -1,6 +1,8 @@
 module Types
     ( Company(..)
     , Campus(..)
+    , Building(..)
+    , Floor(..)
     ) where
 
 import Data.Text (Text)
@@ -20,9 +22,9 @@ instance ToRow Company where
   toRow c = [toField (companyId c), toField (companyName c)]
 
 data Campus = Campus
-  { campusId     :: Int
-  , campusName   :: Text
-  , fkCompanyId  :: Int
+  { campusId    :: Int
+  , campusName  :: Text
+  , fkCompanyId :: Int
   } deriving (Eq, Show)
 
 instance FromRow Campus where
@@ -32,9 +34,9 @@ instance ToRow Campus where
   toRow c = [toField (campusId c), toField (campusName c), toField (fkCompanyId c)]
 
 data Building = Building
-  { buildingId     :: Int
-  , buildingName   :: Text
-  , fkCampusId  :: Int
+  { buildingId   :: Int
+  , buildingName :: Text
+  , fkCampusId   :: Int
   } deriving (Eq, Show)
 
 instance FromRow Building where
@@ -42,4 +44,15 @@ instance FromRow Building where
   
 instance ToRow Building where
   toRow c = [toField (buildingId c), toField (buildingName c), toField (fkCampusId c)]
-  
+
+data Floor = Floor
+  { floorId      :: Int
+  , floorName    :: Text
+  , fkBuildingId :: Int
+  }
+
+instance FromRow Floor where
+  fromRow = Floor <$> field <*> field <*> field
+    
+instance ToRow Floor where
+  toRow c = [toField (floorId c), toField (floorName c), toField (fkBuildingId c)]
