@@ -43,7 +43,7 @@ instance FromRow Building where
   fromRow = Building <$> field <*> field <*> field
   
 instance ToRow Building where
-  toRow c = [toField (buildingId c), toField (buildingName c), toField (fkCampusId c)]
+  toRow b = [toField (buildingId b), toField (buildingName b), toField (fkCampusId b)]
 
 data Floor = Floor
   { floorId      :: Int
@@ -55,4 +55,16 @@ instance FromRow Floor where
   fromRow = Floor <$> field <*> field <*> field
     
 instance ToRow Floor where
-  toRow c = [toField (floorId c), toField (floorName c), toField (fkBuildingId c)]
+  toRow f = [toField (floorId f), toField (floorName f), toField (fkBuildingId f)]
+
+data Room = Room
+  { roomId    :: Int
+  , roomName  :: Text
+  , fkFloorId :: Int
+  }
+
+instance FromRow Room where
+  fromRow = Room <$> field <*> field <*> field
+
+instance ToRow Room where
+  toRow r = [toField (roomId r), toField (roomName r), toField (fkFloorId r)]

@@ -21,3 +21,6 @@ newBuilding conn vals = execute conn "insert into building (name, campus_id) val
 
 newFloor :: Connection -> (Text, Int) -> IO Int64
 newFloor conn vals = execute conn "insert into floor (name, building_id) values (?, ?)" vals
+
+newRoom :: Connection -> (Text, Int) -> IO Int64
+newRoom conn vals = execute conn "insert into room (name, floor_id) values (?, ?)" vals
