@@ -25,5 +25,5 @@ newFloor conn vals = execute conn "insert into floor (name, building_id) values 
 newRoom :: Connection -> (Text, Int) -> IO Int64
 newRoom conn vals = execute conn "insert into room (name, floor_id) values (?, ?)" vals
 
-newItemType :: Connection -> Text -> IO Int64
-newItemType conn name = execute conn "insert into item_type (name) values (?)" [name]
+newItemType :: Connection -> (Text, Text) -> IO Int64
+newItemType conn vals = execute conn "insert into item_type (name_no, name_eng) values (?)" vals

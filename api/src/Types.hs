@@ -4,13 +4,16 @@ module Types
     , Building(..)
     , Floor(..)
     , Room(..)
+    , Status(..)
     , ItemType(..)
+    , MovedTo(..)
     ) where
 
 import Data.Text (Text)
 import Database.PostgreSQL.Simple.FromRow
 import Database.PostgreSQL.Simple.ToRow
 import Database.PostgreSQL.Simple.ToField
+import Database.PostgreSQL.Simple.Time
 
 data Company = Company
   { companyId   :: Int
@@ -71,13 +74,40 @@ instance FromRow Room where
 instance ToRow Room where
   toRow r = [toField (roomId r), toField (roomName r), toField (fkFloorId r)]
 
+data Status = Found | Lost | Returned deriving (Eq)
+
+instance Show Status where
+  show Found    = "found"
+  show Lost     = "lost"
+  show Returned = "returned"
+
 data ItemType = ItemType
-  { itemTypeId   :: Int
-  , itemTypeName :: Text
+  { itemTypeNo  :: Int
+  , itemTypeEng :: Text
   }
 
 instance FromRow ItemType where
   fromRow = ItemType <$> field <*> field
   
 instance ToRow ItemType where
-  toRow r = [toField (itemTypeId r), toField (itemTypeName r)]
+  toRow it = [toField (itemTypeNo it), toField (itemTypeEng it)]
+
+data Item = Item
+  { itemId       :: Int
+  , description  :: Text
+  , fkitemTypeId :: Int
+  }
+
+instance FromRow Item where
+  fromRow = Item <$> field <*> field <*> field
+
+instance ToRow Item where
+  toRow i = [toField (itemId i), toField (description i), toField (fkitemTypeId i)]
+
+data MovedTo = MovedTo
+  { fkItemId     :: Int
+  , registeredAs :: Status
+  , fkMovedFrom  :: Int
+  , fkMovedTo    :: Int
+  , movedDate    :: ZonedTimestamp
+  }

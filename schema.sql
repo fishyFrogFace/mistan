@@ -48,6 +48,5 @@ CREATE TABLE moved_to (
   registered_as state NOT NULL,
   moved_from INT REFERENCES floor (floor_id) NOT NULL,
   moved_to INT REFERENCES floor (floor_id) NOT NULL,
-  moved_date DATE NOT NULL,
-  moved_time TIMETZ NOT NULL
+  moved_date TIMESTAMPTZ NOT NULL,
 );
